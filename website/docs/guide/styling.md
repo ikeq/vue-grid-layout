@@ -2,8 +2,8 @@
 
 Grid styling can be customized to fit your needs. Below is a list of the classes you can override.
 
-## Placeholder 
-  
+## Placeholder
+
 The default css for the placeholder is:
 
 ````css
@@ -12,16 +12,12 @@ The default css for the placeholder is:
     opacity: 0.2;
     transition-duration: 100ms;
     z-index: 2;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
-}  
+}
 ````
-  
-You can override the properties using the !important rule:  
-  
+
+You can override the properties using the !important rule:
+
 ````css
 .vue-grid-item.vue-grid-placeholder {
     background: green !important;
@@ -46,7 +42,7 @@ In this example we change the placeholder background color to green:
 
 
 ## Grid lines
-     
+
 To add grid lines to the layout, add the ``grid`` class to the grid-layout element and use the css:
 
 ````css
@@ -67,7 +63,7 @@ To add grid lines to the layout, add the ``grid`` class to the grid-layout eleme
 }
 ````
 
-CSS calculations for grid lines: 
+CSS calculations for grid lines:
 
 * background size = calc(calc(100% - (margin/2)) / colNum) rowHeight + margin;
 * height: calc(100% - (margin/2))

@@ -4,9 +4,9 @@
 
 <p align="center">
 <a href="https://www.npmjs.com/package/vue-grid-layout">
-    <img src="https://img.shields.io/npm/v/vue-grid-layout.svg"/> 
+    <img src="https://img.shields.io/npm/v/vue-grid-layout.svg"/>
     <img src="https://img.shields.io/npm/dm/vue-grid-layout.svg"/>
-</a> 
+</a>
 <a href="https://github.com/jbaysolutions/vue-grid-layout/releases">
     <img src="https://img.shields.io/github/size/jbaysolutions/vue-grid-layout/dist/vue-grid-layout.umd.min.js"/>
 </a>
@@ -37,14 +37,14 @@ vue-grid-layout is a grid layout system, like [Gridster](http://dsmorse.github.i
 
 #### **For legacy browsers**, like IE11, use version [2.3.12-legacy](https://github.com/jbaysolutions/vue-grid-layout/tree/legacy)
 #### **For Vue 2.1.10 and below use version [2.1.3](https://github.com/jbaysolutions/vue-grid-layout/tree/2.1.3)**
-#### **For Vue 1 use version [1.0.3](https://github.com/jbaysolutions/vue-grid-layout/tree/1.0.3)** 
+#### **For Vue 1 use version [1.0.3](https://github.com/jbaysolutions/vue-grid-layout/tree/1.0.3)**
 
 ## Documentation
 
 Check out the <a href="https://jbaysolutions.github.io/vue-grid-layout/" target="_blank">Documentation Website</a>
 
 <!--
-Chinese documentation: [简体中文](./README-zh_CN.md) 
+Chinese documentation: [简体中文](./README-zh_CN.md)
 -->
 
 #### Projects using vue-grid-layout
@@ -63,4 +63,4 @@ Chinese documentation: [简体中文](./README-zh_CN.md)
 If you have a feature request, please add it as an issue or make a pull request.
 
 
-Developed by <a href="https://www.jbaysolutions.com">JBay Solutions</a> 
+Developed by <a href="https://www.jbaysolutions.com">JBay Solutions</a>

@@ -1,4 +1,3 @@
-// @flow
 /* eslint-env jest */
 
 import {
@@ -9,12 +8,12 @@ import {
     sortLayoutItemsByRowCol,
     validateLayout
   } from "../../src/helpers/utils";
-  
+
   describe("bottom", () => {
     it("Handles an empty layout as input", () => {
       expect(bottom([])).toEqual(0);
     });
-  
+
     it("Returns the bottom coordinate of the layout", () => {
       expect(
         bottom([
@@ -24,7 +23,7 @@ import {
       ).toEqual(3);
     });
   });
-  
+
   describe("sortLayoutItemsByRowCol", () => {
     it("should sort by top to bottom right", () => {
       const layout = [
@@ -56,7 +55,7 @@ import {
       ).toEqual(true);
     });
   });
-  
+
   describe("validateLayout", () => {
     it("Validates an empty layout", () => {
       validateLayout([]);
@@ -76,7 +75,7 @@ import {
       }).toThrowError(/layout\[1\]\.h must be a number!/i);
     });
   });
-  
+
   describe("moveElement", () => {
     function compactAndMove(
       layout,
@@ -97,7 +96,7 @@ import {
         )
       );
     }
-  
+
     it("Does not change layout when colliding on no rearrangement mode", () => {
       const layout = [
         { i: "1", x: 0, y: 1, w: 1, h: 1, moved: false },
@@ -118,7 +117,7 @@ import {
         { i: "2", x: 1, y: 2, w: 1, h: 1, moved: false }
       ]);
     });
-  
+
     it("Does change layout when colliding in rearrangement mode", () => {
       const layout = [
         { i: "1", x: 0, y: 0, w: 1, h: 1, moved: false },
@@ -139,7 +138,7 @@ import {
         { i: "2", x: 1, y: 1, w: 1, h: 1, moved: true }
       ]);
     });
-  
+
     it("Moves elements out of the way without causing panel jumps when compaction is vertical", () => {
       const layout = [
         { x: 0, y: 0, w: 1, h: 10, i: "A" },
@@ -164,7 +163,7 @@ import {
         expect.objectContaining({ x: 0, y: 11, w: 1, h: 1, i: "C" })
       ]);
     });
-  
+
     it("Calculates the correct collision when moving large object far", () => {
       const layout = [
         { x: 0, y: 0, w: 1, h: 10, i: "A" },
@@ -189,7 +188,7 @@ import {
         expect.objectContaining({ x: 0, y: 12, w: 1, h: 1, i: "C" })
       ]);
     });
-  
+
     it("Moves elements out of the way without causing panel jumps when compaction is vertical", () => {
       const layout = [
         { x: 0, y: 0, w: 1, h: 1, i: "A" },
@@ -214,7 +213,7 @@ import {
         { x: 0, y: 2, w: 2, h: 2, i: "C", moved: true }
       ]);
     });
-  
+
     it("Moves one element to another should cause moving down panels, vert compact", () => {
       // | A | B |
       // |C|  D  |
@@ -243,7 +242,7 @@ import {
         expect.objectContaining({ x: 1, y: 2, w: 3, h: 1, i: "D" })
       ]);
     });
-  
+
     it("Moves one element to another should cause moving down panels, vert compact", () => {
       // | A |
       // |B|C|
@@ -273,7 +272,7 @@ import {
       ]);
     });
   });
-  
+
   describe("compact vertical", () => {
     it("Removes empty vertical space above item", () => {
       const layout = [{ i: "1", x: 0, y: 1, w: 1, h: 1 }];
@@ -281,7 +280,7 @@ import {
         { i: "1", x: 0, y: 0, w: 1, h: 1, moved: false }
       ]);
     });
-  
+
     it("Resolve collision by moving item further down in array", () => {
       const layout = [
         { x: 0, y: 0, w: 1, h: 5, i: "1" },
@@ -292,7 +291,7 @@ import {
         { x: 0, y: 5, w: 1, h: 1, i: "2", moved: false }
       ]);
     });
-  
+
     it("Handles recursive collision by moving new collisions out of the way before moving item down", () => {
       const layout = [
         { x: 0, y: 0, w: 2, h: 5, i: "1" },
@@ -301,7 +300,7 @@ import {
         { x: 5, y: 2, w: 1, h: 1, i: "4" },
         { x: 5, y: 3, w: 1, h: 1, i: "5", static: true }
       ];
-  
+
       expect(compact(layout, true)).toEqual([
         { x: 0, y: 0, w: 2, h: 5, i: "1", moved: false },
         { x: 0, y: 5, w: 10, h: 1, i: "2", moved: false },

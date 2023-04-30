@@ -1,5 +1,4 @@
 <script>
-import Vue from 'vue';
 // import elementResizeDetectorMaker from 'element-resize-detector';
 
 import {
@@ -10,6 +9,7 @@ import {
   validateLayout,
   cloneLayout,
   getAllCollisions,
+  debounce,
 } from '../helpers/utils';
 import {
   getBreakpointFromWidth,
@@ -135,6 +135,8 @@ export default {
   created() {
     const self = this;
 
+    this.onWindowResizeDebounced = debounce(this.onWindowResize, 300);
+
     // Accessible refernces of functions for removing in beforeDestroy
     self.resizeEventHandler = function (eventType, i, x, y, h, w) {
       self.resizeEvent(eventType, i, x, y, h, w);
@@ -144,7 +146,7 @@ export default {
       self.dragEvent(eventType, i, x, y, h, w);
     };
 
-    self._provided.eventBus = new Vue();
+    self._provided.eventBus = new this.$root.constructor();
     self.eventBus = self._provided.eventBus;
     self.eventBus.$on('resizeEvent', self.resizeEventHandler);
     self.eventBus.$on('dragEvent', self.dragEventHandler);
@@ -155,7 +157,7 @@ export default {
     this.eventBus.$off('resizeEvent', this.resizeEventHandler);
     this.eventBus.$off('dragEvent', this.dragEventHandler);
     this.eventBus.$destroy();
-    removeWindowEventListener('resize', this.onWindowResize);
+    removeWindowEventListener('resize', this.onWindowResizeDebounced);
     // if (this.erd) {
     //   this.erd.uninstall(this.$refs.item);
     // }
@@ -176,7 +178,7 @@ export default {
         self.onWindowResize();
 
         //self.width = self.$el.offsetWidth;
-        addWindowEventListener('resize', self.onWindowResize);
+        addWindowEventListener('resize', self.onWindowResizeDebounced);
 
         compact(self.layout, self.verticalCompact);
 

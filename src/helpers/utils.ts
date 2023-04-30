@@ -509,3 +509,21 @@ export function findAndRemove(array, property, value) {
     }
   });
 }
+
+/**
+ *
+ * @param func
+ * @param delay delay in ms
+ * @returns
+ */
+export function debounce(func, delay: number) {
+  let timeoutId;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  };
+}

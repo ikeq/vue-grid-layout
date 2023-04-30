@@ -15,7 +15,6 @@ export default defineConfig((env) => {
       rollupOptions: {
         external: Object.keys(pkg.dependencies),
       },
-      emptyOutDir: true,
     },
     define: {
       __DEV__: env.command === 'serve',
